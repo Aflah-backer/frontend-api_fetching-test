@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+// color variables
+$clr-primary: #0e48fe;
+$clr-primary-hover: #29e6a7;
+$clr-primary-dark: #039d69;
+$clr-gray100: #f9fbff;
+$clr-gray150: #f4f5fb;
+$clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray400: #767b91;
+$clr-gray500: #4f546c;
+$clr-gray600: #2a324b;
+$clr-gray700: #161d34;
+
+//  border radius
+$radius: 1rem;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}  
+
+body{
+    font-family:'Work Sans', sans-serif;
+    color:$clr-gray500;
+}
+
+.wrapper {
+    margin: 2rem;
+    display: grid;
+    gap: 6rem;
+    justify-content: center;
+}
+
+.card{
+    box-shadow: 0 0 10px 5px $clr-gray300;
+    border-radius: $radius;
+    // min-width: 300px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+
+    &__img{
+        width: 14rem;
+        height: 11rem;
+        object-fit: cover;
+        border-radius:1rem 1rem 0 0;
+    }
+    .card-text{
+        color: $clr-primary;
+    }
+    .card-text:hover{
+        cursor: pointer;
+        color: $clr-primary;
+        font-size: large;
+        font-weight: 200;
+
+        &::before{
+            content: "Click This  ";
+        }
+    }
+
+    &__body{
+        margin: 1rem;
+        flex-grow: 1;
+    }
+    &__title{
+        line-height: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    &__content{
+        line-height: 1.2rem;
+    }
+    &__date{
+        font-size: 1.4rem;
+        margin-top: 0.6rem;
+
+        &::before{
+            content: "Date";
+            font-size: 1rem;
+            position: relative;
+            top: -0.3rem;
+            padding-right: 0.1rem;
+        }
+    }
+    // &__btn{
+    //     border: none;
+    //     border-top:1px solid $clr-gray300;
+    //     background-color: transparent;
+    //     font-family: inherit;
+    //     font-size: 1rem;
+    //     font-weight: bold;
+    //     color: inherit;
+    //     width: 100%;
+    //     padding-top: 1rem;
+    //     margin-top: 1rem;
+    //     cursor: pointer;
+
+    //     &:hover{
+    //         color: $clr-primary;
+    //     }
+    // }
+    .author-avatar{
+        margin-top: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+@media screen and (min-width:300px) {
+    .wrapper{
+        grid-template-columns: repeat(auto-fit,
+        minmax(14rem, 16rem));
+    }
+
+    .card{
+        flex-direction: column;
+        text-align: center;
+        min-width: 14rem;
+
+        &__img{
+            width: 100%;
+            height: 12rem;
+        }
+    }
+}
