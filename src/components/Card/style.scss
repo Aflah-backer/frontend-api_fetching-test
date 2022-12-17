@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 
 // color variables
 $clr-primary: #0e48fe;
-$clr-primary-hover: #29e6a7;
-$clr-primary-dark: #039d69;
 $clr-gray100: #f9fbff;
 $clr-gray150: #f4f5fb;
 $clr-gray200: #eef1f6;
@@ -19,163 +17,168 @@ $radius: 1rem;
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-body{
-    font-family:'Work Sans', sans-serif;
-    color:$clr-gray500;
+body {
+  font-family: "Work Sans", sans-serif;
+  color: $clr-gray500;
 }
 
 .wrapper {
-    margin: 2rem;
-    display: grid;
-    gap: 6rem;
-    justify-content: center;
+  margin: 2rem;
+  display: grid;
+  gap: 6rem;
+  justify-content: center;
 }
 
-.card{
-    box-shadow: 0 0 10px 5px $clr-gray300;
-    border-radius: $radius;
-    display: flex;
-    justify-content: center;
-    width: 300px;
+.card {
+  box-shadow: 0 0 10px 5px $clr-gray300;
+  border-radius: $radius;
+  display: flex;
+  justify-content: center;
+  width: 300px;
 
-    .modal-img{
-        width: -webkit-fill-available;
-        object-fit: cover;
-        border-radius:5px 5px 0 0;
-    }
-    .card-text{
-        color: $clr-primary;
-    }
-    .card-text:hover{
-        cursor: pointer;
-        color: $clr-primary;
-        font-size: large;
-        font-weight: 200;
+  .modal-img {
+    width: -webkit-fill-available;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+  .card-text {
+    color: $clr-primary;
+  }
+  .card-text:hover {
+    cursor: pointer;
+    color: $clr-primary;
+    font-size: large;
+    font-weight: 200;
 
-        &::before{
-            content: "Click This  ";
-        }
+    &::before {
+      content: "Click This  ";
     }
-    &__img{
-        border-radius: 1rem 1rem 0 0;
+  }
+  &__img {
+    border-radius: 1rem 1rem 0 0;
+    &:hover {
+        border-radius: 15px;
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+      transition: 1s ease;
     }
+  }
 
-    &__body{
-        margin: 1rem;
-        flex-grow: 1;
-    }
-    &__title{
-        line-height: 1.4rem;
-        margin-bottom: 0.5rem;
-    }
-    &__content{
-        line-height: 1.2rem;
-    }
-    &__date{
-        font-size: 1.4rem;
-        margin-top: 0.6rem;
+  &__body {
+    margin: 1rem;
+    flex-grow: 1;
+  }
+  &__title {
+    line-height: 1.4rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+  &__content {
+    line-height: 1.2rem;
+  }
+  &__date {
+    font-size: 1.4rem;
+    margin-top: 0.6rem;
 
-        &::before{
-            content: "Date";
-            font-size: 1rem;
-            position: relative;
-            top: -0.3rem;
-            padding-right: 0.1rem;
-        }
+    &::before {
+      content: "Date";
+      font-size: 1rem;
+      position: relative;
+      top: -0.3rem;
+      padding-right: 0.1rem;
     }
-    .card-btn{
-        border: none;
-            background-color: transparent;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: bold;
-            color: inherit;
-            width: 100%;
-            padding-top: 1rem;
-            margin-top: 1rem;
-            cursor: pointer;
-    
-            &:hover{
-                color: $clr-primary;
-            }
+  }
+  .card-btn {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: inherit;
+    width: 100%;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $clr-primary;
     }
-    .author-avatar{
-        margin-top: 2rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
+  }
+  .author-avatar {
+    margin-top: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 }
 
-@media screen and (min-width:300px) {
-    .wrapper{
-        grid-template-columns: repeat(auto-fit,
-        minmax(14rem, 16rem));
-    }
+@media screen and (min-width: 300px) {
+  .wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+  }
 
-    .card{
-        flex-direction: column;
-        text-align: center;
-        min-width: 14rem;
+  .card {
+    flex-direction: column;
+    text-align: center;
+    min-width: 14rem;
 
-        &__img{
-            width: 100%;
-            height: 12rem;
-        }
+    &__img {
+      width: 100%;
+      height: 12rem;
     }
+  }
 }
 
 //modal//
-.backShadow{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.322);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.backShadow {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.322);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &__img{
-        width: 34rem;
-        height: 11rem;
-        object-fit: cover;
-        border-radius:1rem 1rem 0 0;
-    }
+  &__img {
+    width: 34rem;
+    height: 11rem;
+    object-fit: cover;
+  }
 }
-.backShadow .custom-modal{
-    border-radius: 5px;
+.backShadow .custom-modal {
+  border-radius: 15px;
+  max-width: 500px;
+  background-color: #fff;
+  position: relative;
+
+  @media screen and (min-width: 850px) {
     max-width: 800px;
-    background-color: #fff;
-    position: relative;
+  }
+  @media screen and (max-width: 580px) {
+    max-width: 300px;
+  }
 }
-.delete-icon{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: red;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    position: absolute;
-    top: -15px;
-    right: -15px;
+.delete-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: -15px;
+  right: -15px;
 }
-// .modal-img{
-//     border-radius: 5px 5px 0 0;
-//     width: 800px;
-//     object-fit: cover;
-// }
-// .modal-author{
-//     margin-bottom: 3rem;
-// }

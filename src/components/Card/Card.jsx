@@ -39,13 +39,13 @@ function Card() {
                         >
                           x
                         </div>
-                        <img src={result.thumbnail.small} className="modal-img"/>
+                        <img src={result.thumbnail.small} alt="###" className="modal-img"/>
                         <h2>{result.title}</h2>
                         <br />
                         <p>{result.content}</p>
                         <br />
                         <div className="modal-author">
-                        <img className="author-avatar" src={result.author.avatar} />
+                        <img className="author-avatar" alt="###" src={result.author.avatar} />
                         <p className="author-name">{result.author.name}-{result.author.role}</p>
                         </div>
                       </div>
@@ -53,10 +53,10 @@ function Card() {
                   )}
                 </div>
                 <div className="card__body">
-                  <h2 className="card__title">{item.title}</h2>
+                  <h2 className="card__title" onClick={() => clickHandler(item)} >{item.title}</h2>
                   <p className="card__content">{item.content}</p>
                   <div className="author-sec">
-                    <img className="author-avatar" src={item.author.avatar} />
+                    <img className="author-avatar" alt="" src={item.author.avatar} />
                     <p className="author-name">{item.author.name}-{item.author.role}</p>
                   </div>
                 </div>
