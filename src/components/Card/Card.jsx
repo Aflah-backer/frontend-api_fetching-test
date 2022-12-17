@@ -1,39 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import "./style.scss";
 
 function Card() {
+  const [modal, setModal] = useState(false);
+  const [result,setResult] = useState()
   const { data, loading } = useFetch(
     "https://my-json-server.typicode.com/Codeinwp/front-end-internship-api/posts"
   );
-    const clickHandler = () => {}
+  const clickHandler = (data) => {
+    setModal(true);
+    setResult(data)
+  };
   return (
     <div>
       {loading ? (
         <h1>loading</h1>
       ) : (
         <>
-            <div className="wrapper">
-          {data.map((item, index) => (
+          <div className="wrapper">
+            {data.map((item, index) => (
               <div className="card" key={item.id}>
                 <div className="img-wrapper">
-                <img
-                  src={item.thumbnail.large}
-                  alt="##"
-                  className="card__img"
+                  <img
+                    src={item.thumbnail.large}
+                    alt="##"
+                    className="card__img"
                   />
-                  <h4 className="card-text" onClick={()=>clickHandler(item?.id)}>Learn More</h4>
-                  </div>
+                  <button onClick={() => clickHandler(item)} className='card-btn'>
+                    Learn More
+                  </button>
+                  {modal === true && (
+                    <div className="backShadow">
+                      <div className="custom-modal">
+                        <div
+                          className="delete-icon"
+                          onClick={() => setModal(false)}
+                        >
+                          x
+                        </div>
+                        <img src={result.thumbnail.small} className="modal-img"/>
+                        <h2>{result.title}</h2>
+                        <br />
+                        <p>{result.content}</p>
+                        <br />
+                        <div className="modal-author">
+                        <img className="author-avatar" src={result.author.avatar} />
+                        <p className="author-name">{result.author.name}-{result.author.role}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="card__body">
                   <h2 className="card__title">{item.title}</h2>
                   <p className="card__content">{item.content}</p>
                   <div className="author-sec">
-                    <img className="author-avatar" src={item.author.avatar}/>
-                    <p className="author-name">{item.author.name}</p>
+                    <img className="author-avatar" src={item.author.avatar} />
+                    <p className="author-name">{item.author.name}-{item.author.role}</p>
                   </div>
                 </div>
               </div>
-          ))}
+            ))}
           </div>
         </>
       )}
